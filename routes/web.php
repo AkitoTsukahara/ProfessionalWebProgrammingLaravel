@@ -36,6 +36,7 @@ Route::get('/dashboard', function () {
 Route::get('/phperkaigi2022/select-only-the-columns', \App\Http\Controllers\PhperKaigi2022\SelectOnlyTheColumnsController::class)->name('phperkaigi2022.select-only-the-columns');
 
 Route::get('/phperkaigi2022/large-dataset', \App\Http\Controllers\PhperKaigi2022\LargeDatasetController::class)->name('phperkaigi2022.large-dataset');
+Route::get('/phperkaigi2022/avoid-unnecessary-queries', \App\Http\Controllers\PhperKaigi2022\AvoidUnnecessaryQueriesController::class)->name('phperkaigi2022.avoid-unnecessary-queries');
 
 
 require __DIR__.'/auth.php';

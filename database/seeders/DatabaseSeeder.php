@@ -18,7 +18,9 @@ class DatabaseSeeder extends Seeder
         $this->call([
             UsersSeeder::class,
             TweetsSeeder::class,
-            BooksSeeder::class
+            BooksSeeder::class,
+            PostsSeeder::class,
+            PrivatePostsSeeder::class
         ]);
     }
 }
