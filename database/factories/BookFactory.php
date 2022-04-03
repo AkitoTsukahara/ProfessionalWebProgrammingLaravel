@@ -18,6 +18,7 @@ class BookFactory extends Factory
     {
         return [
             'name' => $this->faker->colorName . '本',
+            'status' => $this->faker->randomElement(['lend', 'reserved', 'lost']),
             'isbn' => $this->faker->isbn13(),
             'published_date' => $this->faker->date,
             'price' => $this->faker->randomDigitNotNull
