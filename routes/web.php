@@ -37,6 +37,7 @@ Route::get('/phperkaigi2022/select-only-the-columns', \App\Http\Controllers\Phpe
 Route::get('/phperkaigi2022/large-dataset', \App\Http\Controllers\PhperKaigi2022\LargeDatasetController::class)->name('phperkaigi2022.large-dataset');
 Route::get('/phperkaigi2022/avoid-unnecessary-queries', \App\Http\Controllers\PhperKaigi2022\AvoidUnnecessaryQueriesController::class)->name('phperkaigi2022.avoid-unnecessary-queries');
 Route::get('/phperkaigi2022/merge-similar-queries', \App\Http\Controllers\PhperKaigi2022\MergeSimilarQueriesController::class)->name('phperkaigi2022.merge-similar-queries');
+Route::get('/phperkaigi2022/use-simple-paginate', \App\Http\Controllers\PhperKaigi2022\UseSimplePaginateController::class)->name('phperkaigi2022.use-simple-paginate');
 
 
 require __DIR__.'/auth.php';
