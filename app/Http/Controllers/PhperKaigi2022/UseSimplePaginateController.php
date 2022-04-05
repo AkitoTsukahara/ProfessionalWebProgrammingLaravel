@@ -16,7 +16,15 @@ class UseSimplePaginateController extends Controller
      */
     public function __invoke(Request $request)
     {
-        $books = Book::paginate(200); // Generates pagination links for all the pages
-        $books = Book::simplePaginate(200); // Generates only next and previous pagination links
+        $booksPaginate = Book::paginate(200); // Generates pagination links for all the pages
+        $booksSimplePaginate = Book::simplePaginate(200); // Generates only next and previous pagination links
+
+        return view(
+            'books.index',
+            [
+                'booksPaginate' => $booksPaginate,
+                'booksSimplePaginate' => $booksSimplePaginate
+            ]
+        );
     }
 }
