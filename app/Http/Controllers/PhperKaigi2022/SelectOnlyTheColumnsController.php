@@ -18,11 +18,12 @@ class SelectOnlyTheColumnsController extends Controller
     public function __invoke(Request $request)
     {
         DB::enableQueryLog();
-        $users = User::find(1); //Use Eloquent
+
+        $users = User::query()->find(1); //Use Eloquent
         $users = DB::table('users')->where('id', '=', 1)->first(); //Use Query Builder
 
 
-        $users = User::select(['id', 'name'])->find(1); //Use Eloquent
+        $users = User::query()->select(['id', 'name'])->find(1); //Use Eloquent
         $users = DB::table('users')->where('id', '=', 1)->select(['id', 'name'])->first(); //Use Query Builder
 
         dd(DB::getQueryLog());
