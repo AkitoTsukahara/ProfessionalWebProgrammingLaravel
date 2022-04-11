@@ -48,23 +48,25 @@ class LargeDatasetController extends Controller
         // });
 
         //DB::enableQueryLog();
-        $start = microtime(true);
-        $books = DB::table('books')->orderBy('id')->chunk(1000, function ($books){
-            foreach ($books as $book){
-                // do nothing
-            }
-        });
-        dump(microtime(true) - $start);// 14.19sec
-        dump(memory_get_usage() / (1024 * 1024));// 1.2MB
-        dump(memory_get_peak_usage() / (1024 * 1024));// 1.4MB
+        // $start = microtime(true);
+        // $books = DB::table('books')->orderBy('id')->chunk(1000, function ($books){
+        //     foreach ($books as $book){
+        //         // do nothing
+        //     }
+        // });
+        // dump(microtime(true) - $start);// 14.19sec
+        // dump(memory_get_usage() / (1024 * 1024));// 1.2MB
+        // dump(memory_get_peak_usage() / (1024 * 1024));// 1.4MB
         //dd(DB::getQueryLog());
 
-        // $start = microtime(true);
-        // foreach (DB::table('books')->cursor() as $books) {
-        //     // do nothing
-        // }
-        // dump(microtime(true) - $start);// 0.22sec
-        // dump(memory_get_usage() / (1024 * 1024));// 1.2MB
-        // dump(memory_get_peak_usage() / (1024 * 1024));// 9.2MB
+        DB::enableQueryLog();
+        $start = microtime(true);
+        foreach (DB::table('books')->cursor() as $books) {
+            // do nothing
+        }
+        dump(microtime(true) - $start);// 0.22sec
+        dump(memory_get_usage() / (1024 * 1024));// 1.2MB
+        dump(memory_get_peak_usage() / (1024 * 1024));// 9.2MB
+        dd(DB::getQueryLog());
     }
 }
