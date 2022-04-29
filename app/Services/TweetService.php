@@ -4,6 +4,7 @@ declare(strict_types=1);
 namespace App\Services;
 
 use App\Models\Tweet;
+use Carbon\Carbon;
 
 class TweetService
 {
@@ -20,5 +21,14 @@ class TweetService
         }
 
         return $tweet->user_id === $userId;
+    }
+
+    public function countYesterdayTweets(): int
+    {
+        return Tweet::whereDate('created_at', '>=',
+            Carbon::yesterday()->toDateTimeString())
+            ->whereDate('created_at', '<',
+                Carbon::today()->toDateTimeString())
+            ->count();
     }
 }
